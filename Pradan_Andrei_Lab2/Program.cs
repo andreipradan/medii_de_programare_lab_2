@@ -1,7 +1,11 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<Pradan_Andrei_Lab2Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Pradan_Andrei_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Pradan_Andrei_Lab2Context' not found.")));
 
 var app = builder.Build();
 
