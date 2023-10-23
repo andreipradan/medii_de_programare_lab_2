@@ -4,11 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Pradan_Andrei_Lab2.Models;
 
-namespace Pradan_Andrei_Lab2.Pages.Books
+namespace Pradan_Andrei_Lab2.Pages.Authors
 {
     public class DeleteModel : PageModel
     {
@@ -20,46 +19,40 @@ namespace Pradan_Andrei_Lab2.Pages.Books
         }
 
         [BindProperty]
-      public Book Book { get; set; } = default!;
+      public Author Author { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Book == null)
+            if (id == null || _context.Author == null)
             {
                 return NotFound();
             }
 
-            var book = await _context.Book
-                .Include(b => b.Publisher)
-                .Include(b => b.Author)
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var author = await _context.Author.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (book == null)
+            if (author == null)
             {
                 return NotFound();
             }
             else 
             {
-                Book = book;
+                Author = author;
             }
-
-            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "ID", "FullName");
-            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Book == null)
+            if (id == null || _context.Author == null)
             {
                 return NotFound();
             }
-            var book = await _context.Book.FindAsync(id);
+            var author = await _context.Author.FindAsync(id);
 
-            if (book != null)
+            if (author != null)
             {
-                Book = book;
-                _context.Book.Remove(Book);
+                Author = author;
+                _context.Author.Remove(Author);
                 await _context.SaveChangesAsync();
             }
 

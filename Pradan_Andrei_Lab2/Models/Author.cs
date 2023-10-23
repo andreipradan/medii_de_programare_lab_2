@@ -7,5 +7,7 @@ namespace Pradan_Andrei_Lab2.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public ICollection<Book>? Books { get; set; }
+
+        public string FullName { get { return FirstName + " " + LastName; } }
     }
 }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Pradan_Andrei_Lab2.Models;
 
-namespace Pradan_Andrei_Lab2.Pages.Books
+namespace Pradan_Andrei_Lab2.Pages.Authors
 {
     public class CreateModel : PageModel
     {
@@ -20,25 +20,22 @@ namespace Pradan_Andrei_Lab2.Pages.Books
 
         public IActionResult OnGet()
         {
-
-            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "ID", "FullName");
-            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
             return Page();
         }
 
         [BindProperty]
-        public Book Book { get; set; } = default!;
+        public Author Author { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Book == null || Book == null)
+          if (!ModelState.IsValid || _context.Author == null || Author == null)
             {
                 return Page();
             }
 
-            _context.Book.Add(Book);
+            _context.Author.Add(Author);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Pradan_Andrei_Lab2.Migrations
 {
     [DbContext(typeof(Pradan_Andrei_Lab2Context))]
-    [Migration("20231022191512_Author")]
+    [Migration("20231023134049_Author")]
     partial class Author
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
