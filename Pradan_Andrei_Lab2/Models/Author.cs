@@ -1,4 +1,7 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
 namespace Pradan_Andrei_Lab2.Models
 {
 	public class Author
@@ -8,6 +11,7 @@ namespace Pradan_Andrei_Lab2.Models
         public string LastName { get; set; }
         public ICollection<Book>? Books { get; set; }
 
+        [Display(Name = "Full Name")]
         public string FullName { get { return FirstName + " " + LastName; } }
     }
 }
