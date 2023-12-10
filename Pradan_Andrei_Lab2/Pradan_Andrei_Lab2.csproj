@@ -13,6 +13,8 @@
     <None Remove="Pages\Authors\" />
     <None Remove="Pages\Categories\" />
     <None Remove="Models\ViewModels\" />
+    <None Remove="Pages\Members\" />
+    <None Remove="Pages\Borrowings\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -21,6 +23,8 @@
     <Folder Include="Pages\Authors\" />
     <Folder Include="Pages\Categories\" />
     <Folder Include="Models\ViewModels\" />
+    <Folder Include="Pages\Members\" />
+    <Folder Include="Pages\Borrowings\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />

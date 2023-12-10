@@ -19,4 +19,8 @@ using Pradan_Andrei_Lab2.Models;
         public DbSet<Pradan_Andrei_Lab2.Models.Author>? Author { get; set; }
 
         public DbSet<Pradan_Andrei_Lab2.Models.Category>? Category { get; set; }
+
+        public DbSet<Pradan_Andrei_Lab2.Models.Member>? Member { get; set; }
+
+        public DbSet<Pradan_Andrei_Lab2.Models.Borrowing>? Borrowing { get; set; }
     }
